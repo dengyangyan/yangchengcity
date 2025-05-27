@@ -14,14 +14,14 @@ scan_dir=data/yangchengcity/normal_light/yushanzhen
 
 
 # ============================================= downsample images =============================================
-# python utils/image_downsample.py $scan_dir/images --factor 4.0
+python utils/image_downsample.py $scan_dir/images --factor 4.0
 
 # ===================================== generate depth with depth-anything-V2 =================================
 # gpu_id=$(get_available_gpu)
 # echo "GPU $gpu_id is available."
-# CUDA_VISIBLE_DEVICES=$gpu_id python utils/estimate_dataset_depths.py \
-#                                     $scan_dir \
-#                                     -d 4.0 \
+CUDA_VISIBLE_DEVICES=$gpu_id python utils/estimate_dataset_depths.py \
+                                    $scan_dir \
+                                    -d 4.0 \
 
 # ============================================= train&eval coarse model =============================================
 # gpu_id=$(get_available_gpu)
